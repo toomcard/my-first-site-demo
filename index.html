@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>물 주기 계산기 · 나의 첫 사이트</title>
+<meta name="description" content="화분 크기와 놓은 곳만 넣으면 물 주는 간격을 알려 주는 계산기 (수업 시연용 예시)">
+<style>
+body{font-family:-apple-system,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;margin:0;background:#f4f7f5;color:#1d2433}
+main{max-width:520px;margin:0 auto;padding:28px 18px}
+h1{font-size:26px;margin:0 0 6px}
+.sub{color:#667;margin:0 0 22px}
+.card{background:#fff;border-radius:16px;padding:20px;box-shadow:0 4px 18px rgba(0,0,0,.06)}
+label{display:block;font-weight:700;font-size:14px;margin:14px 0 6px}
+select,button{width:100%;font-size:16px;padding:12px;border-radius:10px;border:2px solid #cfd8d3;background:#fff}
+button{background:#24425e;color:#fff;border:0;font-weight:700;margin-top:18px}
+#ans{display:none;margin-top:18px;background:#fff4ec;border:2px solid #e8743b;border-radius:12px;padding:16px;text-align:center}
+#ans b{display:block;font-size:26px;color:#e8743b}
+nav{margin-top:28px;font-size:14px;color:#556;line-height:1.9}
+section{margin-top:22px;font-size:14px;color:#445;line-height:1.7}
+h2{font-size:16px;margin:0 0 4px}
+.note{font-size:12px;color:#889;margin-top:10px}
+</style>
+</head>
+<body>
+<main>
+<h1>🪴 물 주기 계산기</h1>
+<p class="sub">화분 크기와 놓은 곳만 넣으세요.</p>
+<div class="card">
+<label for="size">화분 크기</label>
+<select id="size"><option value="0">작은 화분 (지름 10cm 안팎)</option><option value="1" selected>보통 화분 (지름 15cm 안팎)</option><option value="2">큰 화분 (지름 25cm 넘음)</option></select>
+<label for="place">놓은 곳</label>
+<select id="place"><option value="0" selected>햇빛 드는 베란다</option><option value="1">밝은 거실</option><option value="2">빛이 적은 방</option></select>
+<button onclick="calc()">계산하기</button>
+<div id="ans">물 주는 간격<b id="days"></b><span id="tip"></span></div>
+<p class="note">수업 시연용 예시 계산입니다. 식물 종류와 계절에 따라 다르니, 흙을 손가락으로 만져 보고 마른 뒤에 주세요.</p>
+</div>
+<section id="about"><h2>소개</h2>베란다에서 식물을 키우는 사람이, 처음 식물 키우는 친구들이 「물은 언제 줘?」 하고 물어서 만든 계산기입니다. 「나의 첫 사이트 7일 완성」 수업의 시연용 사이트입니다.</section>
+<section id="contact"><h2>문의</h2>수업 시연용 사이트라 따로 문의를 받지 않습니다.</section>
+<section id="privacy"><h2>개인정보처리방침</h2>이 사이트는 이름·연락처 같은 개인정보를 받지 않고, 입력한 값은 내 브라우저 안에서만 계산합니다.</section>
+</main>
+<script>
+function calc(){var s=+document.getElementById('size').value,p=+document.getElementById('place').value;var d=[[3,4,6],[4,5,7],[6,8,10]][s][p];document.getElementById('days').textContent=d+'일에 한 번';document.getElementById('tip').textContent='흙 겉이 마르면 화분 밑으로 물이 나올 만큼';document.getElementById('ans').style.display='block'}
+</script>
+</body>
+</html>
